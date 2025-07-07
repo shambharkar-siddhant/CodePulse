@@ -40,7 +40,7 @@ This project provides a backend MCP server and frontend interface for chat-based
 ![Chatbot MCP Server](docs/chatbot_1.png)
 
 ### 5. Chatbot - Code Review
-![Chatbot Code Review](docs/chatbot_2.png)
+![Chatbot MCP Server](docs/chatbot_2.png)
 
 ---
 
