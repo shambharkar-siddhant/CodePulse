@@ -1,0 +1,16 @@
+- match: .env
+  reason: .env file should not be modified
+  rule_id: no_env_file
+  type: equals
+- match: .sql
+  reason: Direct .sql file changes are not allowed
+  rule_id: no_sql_files
+  type: endswith
+- reason: PR should not modify more than 40 files
+  rule_id: max_file_limit
+  threshold: 40
+  type: global
+- match: db/
+  reason: Modifications in db directory are not allowed
+  rule_id: no_db_directory_modification
+  type: startswith
