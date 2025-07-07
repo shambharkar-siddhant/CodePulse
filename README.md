@@ -48,8 +48,8 @@ This project provides a backend MCP server and frontend interface for chat-based
 
 ### Architecture
 
-- **Backend:** FastAPI (Python), async, modular, with REST API endpoints for chat, MCP context, and PR analysis.
-- **Frontend:** Modern web UI (React or similar), supports markdown formatting, session management, and real-time chat.
+- **Backend:** FastAPI (Python), async, modular, with REST API endpoints for chat and PR analysis.
+- **Frontend:** Minimalistic web UI (React), supports markdown formatting, session management, and real-time chat.
 - **Database:** PostgreSQL, with tables for chat sessions, messages, PR summaries, events, and assistant interactions.
 - **LLM Integration:** Pluggable LLM client for AI-powered chat and PR summarization.
 - **MCP Server:** Central protocol for managing all context, rules, and chat sessions, making the system extensible and robust.
@@ -59,7 +59,7 @@ This project provides a backend MCP server and frontend interface for chat-based
 - `mcp_server/`: Main backend server, API routes, LLM client, MCP context engine.
 - `github_bot/`: GitHub webhook handler, posts PR summaries and rule violations as comments.
 - `db/`: Database connection, migrations, and CRUD logic.
-- `frontend/`: Web UI (not shown here).
+- `frontend/`: Web UI (added in different repo).
 
 ### Database Schema
 
@@ -71,44 +71,9 @@ This project provides a backend MCP server and frontend interface for chat-based
 
 1. **User logs in** and opens a chat session.
 2. **User can ask about repository context, request code review, or manage rules** via chat, all handled by the MCP server.
-3. **When a PR is opened**, the MCP server summarizes the PR, checks for rule violations, and posts a comment.
-4. **Admins can update repository context and rules** via chat or the UI; changes are reflected in real time.
+3. **When a PR is opened**, the LLM summarizes the PR, checks for rule violations, and posts a comment.
+4. **Admins can update repository context and rules** via chat or the API; changes are reflected in real time.
 
----
-
-## Getting Started
-
-### Prerequisites
-
-- Python 3.10+
-- Node.js (for frontend and smee)
-- PostgreSQL
-
-### Setup
-
-1. **Clone the repo:**
-   ```bash
-   git clone https://github.com/yourusername/smart-github-bot.git
-   cd smart-github-bot
-   ```
-
-2. **Set up environment variables:**  
-   Copy `env_vars` to `.env` and edit as needed.
-
-3. **Run database migrations:**
-   ```bash
-   psql -h localhost -U <youruser> -d <yourdb> -f db/migrations.sql
-   ```
-
-4. **Start the backend and bot:**
-   ```bash
-   ./launch_all.sh
-   ```
-
-5. **(Optional) Start the frontend:**  
-   See `frontend/README.md` for details.
-
----
 
 ## Contributing
 
